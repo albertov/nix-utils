@@ -34,8 +34,8 @@
       rpm = { program, system }: 
           (utils system).buildFakeSingleRPM (package program system);
 
-      deb = { program, system }: 
-          (utils system).buildFakeSingleDeb (package program system);
+      deb = { program, system, version?"1.0" }: 
+          (utils system).buildFakeSingleDeb (package program system) version;
 
     };
     defaultBundler = self.bundlers.rpm;
